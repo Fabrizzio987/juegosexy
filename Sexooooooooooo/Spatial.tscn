@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 0.994937, 0, -0.100501, 0, 1, 0, 0.100501, 0, 0.994937, 0.00341737, 1.67307, 0.020309 )
+
+[node name="Skeleton" type="Skeleton" parent="."]
+transform = Transform( 0.527757, 0, -0.849396, 0, 1, 0, 0.849396, 0, 0.527757, 0.097862, -0.0328668, -0.00988524 )
