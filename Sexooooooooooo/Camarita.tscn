@@ -1,6 +1,41 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://data.hterrain" type="Resource" id=1]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
+[ext_resource path="res://Bricks066_1K-JPG/Bricks066_1K_AmbientOcclusion.jpg" type="Texture" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+mode = 0
+textures = [ [ ExtResource( 4 ) ], [ null ] ]
+
+[sub_resource type="CapsuleShape" id=2]
 
 [node name="Spatial" type="Spatial"]
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.725314, 0, -0.688418, 0, 1, 0, 0.688418, 0, -0.725314, -0.0536321, 0, 0 )
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 3 )
+_terrain_data = ExtResource( 1 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1543, 4.51082, 20.0946 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790831, 0 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="KinematicBody"]
+transform = Transform( -0.725314, 0, -0.688418, 0, 1, 0, 0.688418, 0, -0.725314, -0.119179, 1.17923, -0.373633 )
