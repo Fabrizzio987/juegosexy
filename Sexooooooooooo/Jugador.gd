@@ -4,6 +4,9 @@ extends KinematicBody
 export var rapidez=10
 export var acce=5
 
+export var gravedad=9.8
+export var salto=20
+
 
 onready var camara=$Camera
 var velocidad=Vector3()
@@ -26,3 +29,7 @@ func _physics_process(delta):
 	dir=dir.normalized()
 	velocidad=velocidad.linear_interpolate(dir*rapidez,acce*delta)
 	velocidad=move_and_slide(velocidad)
+	velocidad.y-=gravedad
+	
+	if Input.is_action_pressed("saltar"):
+		velocidad.y+=salto
