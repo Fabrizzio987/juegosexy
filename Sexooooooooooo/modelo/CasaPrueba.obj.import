@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/CasaPrueba.obj-4ba06b055c8171eb9bb8f936d724d66a.mesh"
+
+[deps]
+
+files=[ "res://.import/CasaPrueba.obj-4ba06b055c8171eb9bb8f936d724d66a.mesh" ]
+
+source_file="res://modelo/CasaPrueba.obj"
+dest_files=[ "res://.import/CasaPrueba.obj-4ba06b055c8171eb9bb8f936d724d66a.mesh", "res://.import/CasaPrueba.obj-4ba06b055c8171eb9bb8f936d724d66a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

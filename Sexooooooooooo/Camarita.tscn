@@ -1,20 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Bricks/Bricks066_1K_Displacement.jpg" type="Texture" id=1]
 [ext_resource path="res://Jugador.gd" type="Script" id=2]
 [ext_resource path="res://Terreno.gd" type="Script" id=3]
 [ext_resource path="res://modelo/pichula.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://modelo/CasaPrueba.obj" type="ArrayMesh" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="PrismMesh" id=7]
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.25098, 0.45098, 0.831373, 1 )
-
-[sub_resource type="PlaneMesh" id=2]
+[sub_resource type="PrismMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.25098, 0.45098, 0.831373, 1 )
+
+[sub_resource type="PlaneMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.984314, 0.152941, 0.152941, 1 )
 albedo_texture = ExtResource( 1 )
 
@@ -41,18 +42,62 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119179, 6.97648, 15.4839 )
 
 [node name="cuerpo" type="MeshInstance" parent="Jugador"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.39324, 0 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Terreno" type="MeshInstance" parent="Node"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 199.279, -1.80148, -2.98957 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
 
 [node name="Terreno2" type="MeshInstance" parent="Node"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="CasaPrueba" type="MeshInstance" parent="Node"]
+transform = Transform( 2.034, 0, 0, 0, 1.54, 0, 0, 0, 1.964, -1.54, 0.373, -54.446 )
+mesh = ExtResource( 5 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
