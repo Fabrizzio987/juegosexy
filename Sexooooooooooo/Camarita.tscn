@@ -1,28 +1,52 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Bricks/Bricks066_1K_Displacement.jpg" type="Texture" id=1]
+[ext_resource path="res://Ground_Dirt/Ground_Dirt_007_basecolor.jpg" type="Texture" id=1]
 [ext_resource path="res://Jugador.gd" type="Script" id=2]
 [ext_resource path="res://Terreno.gd" type="Script" id=3]
 [ext_resource path="res://modelo/pichula.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://modelo/CasaPrueba.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://Ground_Dirt/Ground_Dirt_007_normal.jpg" type="Texture" id=6]
+[ext_resource path="res://Ground_Dirt/Ground_Dirt_007_roughness.jpg" type="Texture" id=7]
+[ext_resource path="res://Ground_Dirt/Ground_Dirt_007_ambientOcclusion.jpg" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="PrismMesh" id=2]
+[sub_resource type="PlaneMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.25098, 0.45098, 0.831373, 1 )
+albedo_color = Color( 0.945098, 0.890196, 0.74902, 1 )
+albedo_texture = ExtResource( 1 )
+roughness_texture = ExtResource( 7 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 6 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 8 )
+ao_on_uv2 = false
+ao_texture_channel = 0
 
 [sub_resource type="PlaneMesh" id=4]
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.984314, 0.152941, 0.152941, 1 )
 albedo_texture = ExtResource( 1 )
+roughness_texture = ExtResource( 7 )
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource( 6 )
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource( 8 )
+ao_on_uv2 = false
+ao_texture_channel = 0
 
 [node name="Entorno" type="Spatial"]
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.172651, 0.984983, 0, -0.984983, -0.172651, 0, 33.5577, 0 )
+
 [node name="Jugador" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.599464, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850723, -0.599464, 25.425 )
 script = ExtResource( 2 )
 
 [node name="Cuerpo" type="CollisionShape" parent="Jugador"]
@@ -38,25 +62,21 @@ material/2 = null
 material/3 = null
 
 [node name="Camera" type="Camera" parent="Jugador"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119179, 6.97648, 15.4839 )
-
-[node name="cuerpo" type="MeshInstance" parent="Jugador"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.39324, 0 )
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172756, 8.64052, -1.68575 )
+far = 764.1
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Terreno" type="MeshInstance" parent="Node"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 199.279, -1.80148, -2.98957 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="Terreno2" type="MeshInstance" parent="Node"]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -0.142017, 5.72205e-06, 0.220371 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="CasaPrueba" type="MeshInstance" parent="Node"]
 transform = Transform( 2.034, 0, 0, 0, 1.54, 0, 0, 0, 1.964, -1.54, 0.373, -54.446 )
@@ -101,3 +121,8 @@ material/36 = null
 material/37 = null
 material/38 = null
 material/39 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Node"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.3623, 3.89463, -30.0437 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )

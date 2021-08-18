@@ -10,3 +10,4 @@ extends Node
 func _ready():
 	$Terreno.create_trimesh_collision()
 	$Terreno2.create_trimesh_collision()
+	$CasaPrueba.create_trimesh_collision()
